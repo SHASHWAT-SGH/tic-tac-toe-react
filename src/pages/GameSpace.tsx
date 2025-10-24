@@ -115,7 +115,7 @@ function GameSpace() {
   return (
     <div className="w-screen h-screen flex flex-col md:flex-row bg-[#0d1645] overflow-hidden">
       {/* Left: Game Board */}
-      <div className="w-full md:w-1/2 h-screen flex justify-center items-center">
+      <div className="w-full md:w-1/2 md:h-screen flex justify-center items-center">
         <div className="flex flex-col justify-center items-center gap-8">
           <div className="text-white text-3xl text-center select-none">
             Player: <span>{player}</span>
@@ -131,7 +131,7 @@ function GameSpace() {
       </div>
 
       {/* Right: History */}
-      <div className="w-full md:w-1/2 h-screen flex flex-col justify-center items-center gap-4">
+      <div className="w-full md:w-1/2 md:h-screen flex flex-col justify-center items-center gap-4">
         <div className="text-white text-2xl select-none">HISTORY</div>
         <div className="rounded-lg overflow-y-auto max-h-[80vh] w-[80%]">
           {history.length === 0 ? (
