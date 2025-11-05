@@ -50,19 +50,22 @@ function GameSpace() {
   const handleCellClick = (row: number, col: number) => {
     if (grid[row][col] !== null || winner) return;
 
+    const currentHistory =
+      step < history.length ? history.slice(0, step) : history;
+
     const newGrid: GridType = grid.map((r) => [...r]) as GridType;
     newGrid[row][col] = player;
 
     const newHistory: GameHistoryEntry = {
       playerTurn: player,
       boardState: newGrid.map((r) => [...r]) as GridType,
-      moveNumber: history.length + 1,
+      moveNumber: currentHistory.length + 1,
       cellPosition: { row, col },
     };
 
     setGrid(newGrid);
-    setHistory([...history, newHistory]);
-    setStep(history.length + 1);
+    setHistory([...currentHistory, newHistory]);
+    setStep(currentHistory.length + 1);
 
     const result = checkWinner(newGrid);
     if (result) {
